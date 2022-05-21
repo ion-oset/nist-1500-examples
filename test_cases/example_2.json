@@ -72,7 +72,7 @@
             "Type": "country",
             "@id": "country_usa",
             "ComposingGpUnitIds": ["state_farallon"],
-                        "Name": {
+            "Name": {
                 "Text": [
                     {
                         "Content": "United States of America",
@@ -327,7 +327,6 @@
                     }
                 ],
                 "Label": "Leptonicon",
-
                 "@type": "ElectionResults.InternationalizedText"
             },
 
@@ -450,7 +449,7 @@
                 ]
             }
         },
-                {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Gomez-Hector",
             "FirstName": "Hector",
@@ -466,7 +465,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Davis-Rosashawn",
             "FirstName": "Hector",
@@ -482,7 +481,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Tsi-Oliver",
             "FirstName": "Oliver",
@@ -498,7 +497,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Orotund-Glavin",
             "FirstName": "Glavin",
@@ -514,7 +513,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Alpha-Anthony",
             "FirstName": "Anthony",
@@ -530,7 +529,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Beta-Betty",
             "FirstName": "Betty",
@@ -546,7 +545,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Gamma-Gloria",
             "FirstName": "Gloria",
@@ -562,7 +561,7 @@
                 ]
             }
         },
-                       {
+        {
             "@type": "ElectionResults.Person",
             "@id": "Person_Delta-David",
             "FirstName": "David",
@@ -577,7 +576,7 @@
                     }
                 ]
             }
-        }        
+        }
     ],
     "Election": [
         {
@@ -817,7 +816,6 @@
                 }
             ],
             "BallotStyle": [
-
                 {
                     "GpUnitIds": ["precinct_1_downtown"],
                     "OrderedContent": [
@@ -1129,8 +1127,7 @@
                     "@type": "ElectionResults.BallotStyle"
                 }
             ],
-           
-           "Contest": [
+            "Contest": [
                 {
                     "OfficeIds": ["office_mayor"],
                     "VotesAllowed": 1,
