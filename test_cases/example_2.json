@@ -1365,44 +1365,6 @@
                     "VoteVariation": "n-of-m"
                 },
                 {
-                    "@id": "contest_6",
-                    "ContestSelection": [
-                        {
-                            "Selection": {
-                                "Text": [
-                                    {
-                                        "Content": "Yes",
-                                        "Language": "en",
-                                        "@type": "ElectionResults.LanguageString"
-                                    }
-                                ],
-                                "@type": "ElectionResults.InternationalizedText"
-                            },
-                            "@type": "ElectionResults.BallotMeasureSelection",
-                            "@id": "selection_6.1",
-                            "SequenceOrder": 1
-                        },
-                        {
-                            "Selection": {
-                                "Text": [
-                                    {
-                                        "Content": "No",
-                                        "Language": "en",
-                                        "@type": "ElectionResults.LanguageString"
-                                    }
-                                ],
-                                "@type": "ElectionResults.InternationalizedText"
-                            },
-                            "@type": "ElectionResults.BallotMeasureSelection",
-                            "@id": "selection_6.2",
-                            "SequenceOrder": 2
-                        }
-                    ],
-                    "ElectionDistrictId": "state_farallon",
-                    "Name": "Constitutional Amendment to Legalize Helium Balloons",
-                    "@type": "ElectionResults.BallotMeasureContest"
-                },
-                {
                     "OfficeIds": [
                         "potus",
                         "vpotus"
