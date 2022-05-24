@@ -6,11 +6,70 @@ from collections.abc import Mapping
 from utility import walk_document
 
 
+class IndexNode:
+
+    """Entry in the index describing an item and its container.
+
+    Allows tracking the parent and key of an item so it can be removed.
+    """
+
+    # Note: The field that stores the "current" item is `value`, not `parent`.
+
+    def __init__(self, parent, key, value):
+        """Create an index node.
+
+        Parameters:
+            parent: The container that holds the item with the value.
+                It has one of the following types:
+                - A mapping (a class defined in the JSON Schema)
+                - A sequence (a list)
+            key: The key used to get the value from the parent.
+                If the parent is a mapping the key is the field name.
+                If the parent is a sequence the key is a numeric index.
+            value: The item being examined for reachability.
+                Can be of any type.
+        """
+        self._parent = parent
+        self._key = key
+        self._value = value
+
+
+    def __str__(self):
+        """String form of the item.
+
+        Note: This is not JSON.
+        """
+        return str(self._value)
+
+
+    # Access to properties is read-only.
+
+    @property
+    def parent(self):
+        """Item containing the value."""
+        return self._parent
+
+
+    @property
+    def key(self):
+        """Key (field name or index) used to access the value from the parent."""
+        return self._key
+
+
+    @property
+    def value(self):
+        """Item being examined for reachability."""
+        return self._value
+
+
 class Index:
 
     """Indexes of all elements by their '@id' and '@type'.
 
     Provides a limited DOM-like interface.
+
+    Note that only elements (mappings) are indexed: Lists and scalars have no
+    '@id' or '@type'.
     """
 
     def __init__(self, document, namespace):
@@ -55,9 +114,10 @@ class Index:
 
     def _build_indexes(self):
         """Build the ID and type indexes."""
-        for item in walk_document(self._document):
-            if isinstance(item, Mapping):
-                if "@id" in item:
-                    self._by_id[item["@id"]] = item
-                if "@type" in item:
-                    self._by_type.setdefault(item["@type"], []).append(item)
+        for item, key, value in walk_document(self._document):
+            if isinstance(value, Mapping):
+                node = IndexNode(item, key, value)
+                if "@id" in value:
+                    self._by_id[value["@id"]] = node
+                if "@type" in value:
+                    self._by_type.setdefault(value["@type"], []).append(node)

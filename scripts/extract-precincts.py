@@ -20,13 +20,13 @@ def _show_index(document):
     print("IDs (types):")
     # Strip namespace prefix off of printed type
     n = len(index._namespace) + 1
-    for name, value in index._by_id.items():
-        print(f"- {name}: {value['@type'][n:]}")
+    for name, node in index._by_id.items():
+        print(f"- {name}: {node.value['@type'][n:]}")
     print()
     # Counts of elements by their type
     print("Types (counts):")
-    for name, values in index._by_type.items():
-        print(f"- {name}: {len(values)}")
+    for name, nodes in index._by_type.items():
+        print(f"- {name}: {len(nodes)}")
 
 
 def _show_precinct_selection(document, precinct_id, election_id):
