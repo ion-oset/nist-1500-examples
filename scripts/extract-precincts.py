@@ -1,10 +1,31 @@
 """Extract single-precinct EDFs from multi-precinct EDFs."""
 
+from index import Index
+
+
 # --- Display results
 
 def _show_item(item, output = None):
     output = output or sys.stdout
     print(json.dumps(item, indent = 4), file = output)
+
+
+def _show_index(document):
+    index = Index(document, "ElectionResults")
+    print()
+    print("Index")
+    print("-----\n")
+    # Types of elements by their ID
+    print("IDs (types):")
+    # Strip namespace prefix off of printed type
+    n = len(index._namespace) + 1
+    for name, value in index._by_id.items():
+        print(f"- {name}: {value['@type'][n:]}")
+    print()
+    # Counts of elements by their type
+    print("Types (counts):")
+    for name, values in index._by_type.items():
+        print(f"- {name}: {len(values)}")
 
 
 # --- Main
@@ -16,8 +37,9 @@ import sys
 from pathlib import Path
 
 
-# Contexts to show debugging output in
-_SHOW = ( "document", )
+# Contexts to show debugging output in.
+# Would be replaced with 'logging' in a non-example application.
+_SHOW = ( "document", "index" )
 
 
 def run(input_file, show, **opts):
@@ -25,6 +47,8 @@ def run(input_file, show, **opts):
     document = json.loads(input_file.read_text())
     if "document" in show:
         _show_item(document)
+    if "index" in show:
+        _show_index(document)
 
 
 def main():
