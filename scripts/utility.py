@@ -3,6 +3,11 @@
 from collections.abc import Sequence, Mapping
 
 
+def ids_of(items):
+    """Get JSON Schema '@id's from a list of elements."""
+    return [item["@id"] for item in items]
+
+
 def walk_document(parent):
     """Walk all objects in a document, depth first.
 

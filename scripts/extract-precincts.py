@@ -2,6 +2,7 @@
 
 from index import Index
 from selection import PrecinctSelection
+from extractor import PrecinctExtractor
 
 
 # --- Display results
@@ -59,6 +60,15 @@ def _show_precinct_selection(document, precinct_id, election_id):
         print()
 
 
+def _show_extracted_precinct(document, precinct_id, election_id):
+    print()
+    print("Extract Precinct")
+    print("----------------")
+    extractor = PrecinctExtractor()
+    precinct_document = extractor.extract_precinct(document, precinct_id, election_id)
+    _show_item(precinct_document)
+
+
 # --- Main
 
 import argparse
@@ -70,7 +80,7 @@ from pathlib import Path
 
 # Contexts to show debugging output in.
 # Would be replaced with 'logging' in a non-example application.
-_SHOW = ( "document", "index", "selection" )
+_SHOW = ( "document", "index", "selection", "extractor" )
 
 
 def run(input_file, precinct_id, election_id, show, **opts):
@@ -82,6 +92,8 @@ def run(input_file, precinct_id, election_id, show, **opts):
         _show_index(document)
     if "selection" in show:
         _show_precinct_selection(document, precinct_id, election_id)
+    if "extractor" in show:
+        _show_extracted_precinct(document, precinct_id, election_id)
 
 
 # Notes:
