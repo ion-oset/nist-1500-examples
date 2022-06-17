@@ -83,7 +83,7 @@ from pathlib import Path
 _SHOW = ( "document", "index", "selection", "extractor" )
 
 
-def run(input_file, precinct_id, election_id, show, **opts):
+def run(input_file, output_file, precinct_id, election_id, show, **opts):
     assert input_file.is_file(), f"Not a file: {input_file}"
     document = json.loads(input_file.read_text())
     if "document" in show:
@@ -94,6 +94,14 @@ def run(input_file, precinct_id, election_id, show, **opts):
         _show_precinct_selection(document, precinct_id, election_id)
     if "extractor" in show:
         _show_extracted_precinct(document, precinct_id, election_id)
+    if output_file:
+        output_file = Path(output_file)
+        assert output_file.parent.is_dir(), f"Not a directory: {output_file.parent}"
+        with output_file.open("w") as output:
+            runner = PrecinctExtractor()
+            precinct_document = runner.extract_precinct(document, precinct_id, election_id)
+            print(f"Saving results to {output_file}")
+            _show_item(precinct_document, output)
 
 
 # Notes:
@@ -115,6 +123,8 @@ def main():
         help = "ID (numeric index) of the BallotStyle of the precinct to extract")
     add("election_id", type = int, nargs = "?", default = 0,
         help = "ID (numeric index) of the Election to extract. (default: 0)")
+    add("-o", "--output-file", type = None,
+        help = "EDF file with selected precinct (default: standard output)")
     add("--show", choices = _SHOW, action = "append", default = [],
         help = "Contexts to show debugging output. Any of: " + ", ".join(_SHOW))
     opts = parser.parse_args()
