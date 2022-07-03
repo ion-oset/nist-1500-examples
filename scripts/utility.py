@@ -9,7 +9,7 @@ from electos.datamodels.nist.models.base import NistModel
 
 def ids_of(items):
     """Get JSON Schema '@id's from a list of elements."""
-    return [item["@id"] for item in items]
+    return [item.model__id for item in items]
 
 
 def json_save(item):

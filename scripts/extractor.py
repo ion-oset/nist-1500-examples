@@ -27,7 +27,7 @@ class PrecinctExtractor:
         selection = PrecinctSelection(document, precinct_id, election_id)
         # Ballot styles have no '@id', so 'ids_of' won't work.
         # Since there's only one ballot style for the precinct this doesn't matter.
-        document["Election"][election_id]["BallotStyle"] = [selection.ballot_style]
+        document.election[election_id].ballot_style = [selection.ballot_style]
         for name, ids in (
             ( "Contest", ids_of(selection.contests) ),
             ( "Candidate", ids_of(selection.candidates) ),
@@ -47,7 +47,7 @@ class PrecinctExtractor:
         keys = []
         for node in index.by_type(type_name):
             item = node.value
-            if item["@id"] not in reachable_ids:
+            if item.model__id not in reachable_ids:
                 keys.append(node.key)
         # Delete from end to beginning so that indexes don't change if item
         # is a list. If node is a dict this is unnecessary but harmless.
