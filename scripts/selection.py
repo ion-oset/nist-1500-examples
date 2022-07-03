@@ -27,28 +27,28 @@ class PrecinctSelection:
 
         This is the root of the extraction, so there is only one.
         """
-        result = self._election["BallotStyle"][self._precinct_id]
+        result = self._election.ballot_style[self._precinct_id]
         return result
 
 
     @cached_property
     def candidates(self):
         """Candidates in the precinct. Derived fron the candidate contests."""
-        candidates = self._election["Candidate"]
+        candidates = self._election.candidate
         ids = [
-            contest_selection["CandidateIds"]
+            contest_selection.candidate_ids
             # Only look at candidate contests
             for contest in self.contests
-                if contest["@type"] == "ElectionResults.CandidateContest"
+                if contest.model__type == "ElectionResults.CandidateContest"
             # Limit to selections with candidate IDs.
             # Write-ins are candidate contest selections but have no IDs.
-            for contest_selection in contest["ContestSelection"]
-                if "CandidateIds" in contest_selection
+            for contest_selection in contest.contest_selection
+                if hasattr(contest_selection, "CandidateIds")
         ]
         ids = reduce(lambda x, y: x + y, ids, [])
         results = [
             candidate
-            for candidate in candidates if candidate["@id"] in ids
+            for candidate in candidates if candidate.model__id in ids
         ]
         return results
 
@@ -56,15 +56,15 @@ class PrecinctSelection:
     @cached_property
     def contests(self):
         """Contests in the precinct. Derived from the ballot style."""
-        contests = self._election["Contest"]
+        contests = self._election.contest
         ids = [
-            item2["ContestId"]
-            for item1 in self.ballot_style["OrderedContent"]
-            for item2 in item1["OrderedContent"]
+            item2.contest_id
+            for item1 in self.ballot_style.ordered_content
+            for item2 in item1.ordered_content
         ]
         results = [
             contest
-            for contest in contests if contest["@id"] in ids
+            for contest in contests if contest.model__id in ids
         ]
         return results
 
@@ -72,11 +72,11 @@ class PrecinctSelection:
     @cached_property
     def gp_units(self):
         """Geo-political unit for the precinct. Extracted from election report."""
-        gp_units = self._document["GpUnit"]
-        ids = self.ballot_style["GpUnitIds"]
+        gp_units = self._document.gp_unit
+        ids = self.ballot_style.gp_unit_ids
         results = [
             gp_unit
-            for gp_unit in gp_units if gp_unit["@id"] in ids
+            for gp_unit in gp_units if gp_unit.model__id in ids
         ]
         assert len(results) == 1, "More than one GpUnit for precinct"
         return results
@@ -85,14 +85,14 @@ class PrecinctSelection:
     @cached_property
     def headers(self):
         """Ballot headers for the precinct. Extracted from the election report."""
-        headers = self._document["Header"]
+        headers = self._document.header
         ids = [
-            item["HeaderId"]
-            for item in self.ballot_style["OrderedContent"]
+            item.header_id
+            for item in self.ballot_style.ordered_content
         ]
         results = [
             header
-            for header in headers if header["@id"] in ids
+            for header in headers if header.model__id in ids
         ]
         return results
 
@@ -100,17 +100,17 @@ class PrecinctSelection:
     @cached_property
     def offices(self):
         """Offices for the precinct. Derived from the candidate contests."""
-        offices = self._document["Office"]
+        offices = self._document.office
         ids = [
-            contest["OfficeIds"]
+            contest.office_ids
             # Only candidate contests have offices
             for contest in self.contests
-                if contest["@type"] == "ElectionResults.CandidateContest"
+                if contest.model__type == "ElectionResults.CandidateContest"
         ]
         ids = reduce(lambda x, y: x + y, ids, [])
         results = [
             office
-            for office in offices if office["@id"] in ids
+            for office in offices if office.model__id in ids
         ]
         return results
 
@@ -118,16 +118,16 @@ class PrecinctSelection:
     @cached_property
     def parties(self):
         """Parties for the precinct. Derived from the candidates."""
-        parties = self._document["Party"]
+        parties = self._document.party
         ids = [
-            candidate["PartyId"]
+            candidate.party_id
             # Not all candidates have a party
             for candidate in self.candidates
-                if "PartyId" in candidate
+                if hasattr(candidate, "PartyId")
         ]
         results = [
             party
-            for party in parties if party["@id"] in ids
+            for party in parties if party.model__id in ids
         ]
         return results
 
@@ -135,16 +135,16 @@ class PrecinctSelection:
     @cached_property
     def persons(self):
         """Persons for the precinct. Derived from the candidates."""
-        persons = self._document["Person"]
+        persons = self._document.person
         ids = [
-            candidate["PersonId"]
+            candidate.person_id
             for candidate in self.candidates
         ]
         results = [
             person
             # Note: Technically a Candidate can have 0 Persons.
             # It's not clear under what circumstances that can occur.
-            for person in persons if person["@id"] in ids
+            for person in persons if person.model__id in ids
         ]
         return results
 
@@ -153,7 +153,7 @@ class PrecinctSelection:
 
     @cached_property
     def _election(self):
-        elections = self._document["Election"]
+        elections = self._document.election
         election = elections[self._election_id]
         return election
 

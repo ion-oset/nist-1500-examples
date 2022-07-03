@@ -40,13 +40,13 @@ def _show_precinct_selection(document, precinct_id, election_id):
     print("------------\n")
     selection = PrecinctSelection(document, precinct_id, election_id)
     entries = [
-        ( "GP Units", selection.gp_units, selection._document["GpUnit"] ),
-        ( "Headers",  selection.headers,  selection._document["Header"] ),
-        ( "Contests", selection.contests, selection._election["Contest"] ),
-        ( "Candidates", selection.candidates, selection._election["Candidate"] ),
-        ( "Offices", selection.offices,   selection._document["Office"] ),
-        ( "Parties", selection.parties,   selection._document["Party"] ),
-        ( "Persons", selection.persons,   selection._document["Person"] ),
+        ( "GP Units", selection.gp_units, selection._document.gp_unit ),
+        ( "Headers",  selection.headers,  selection._document.header ),
+        ( "Contests", selection.contests, selection._election.contest ),
+        ( "Candidates", selection.candidates, selection._election.candidate ),
+        ( "Offices", selection.offices,   selection._document.office ),
+        ( "Parties", selection.parties,   selection._document.party ),
+        ( "Persons", selection.persons,   selection._document.person ),
     ]
     for (label1, some, all) in entries:
         print(f"{label1}:")
@@ -58,7 +58,7 @@ def _show_precinct_selection(document, precinct_id, election_id):
                 print(f"  {label2}: none")
                 continue
             print(f"  {label2}:")
-            ids = [_["@id"] for _ in items if _]
+            ids = [_.model__id for _ in items if _]
             print(sep, end = "")
             print(nsep.join(ids))
         print()
