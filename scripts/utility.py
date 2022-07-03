@@ -49,8 +49,9 @@ def walk_document(parent):
         - For a mapping or sequence: 'parent[key]'
         - For a scalar: the 'parent'
     """
-    if isinstance(parent, Mapping):
-        for name, value in parent.items():
+    if isinstance(parent, NistModel):
+        for name in parent.__fields__.keys():
+            value = getattr(parent, name)
             yield parent, name, value
             yield from walk_document(value)
     elif isinstance(parent, Sequence) and not isinstance(parent, (str, bytes)):
@@ -58,5 +59,7 @@ def walk_document(parent):
             yield parent, index, value
             yield from walk_document(value)
     else:
+        assert not isinstance(parent, Mapping), \
+              f"There should be no mappings in a model: {parent}"
         parent, key, value = None, None, parent
         yield parent, key, value

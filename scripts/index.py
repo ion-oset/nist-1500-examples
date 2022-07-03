@@ -3,6 +3,8 @@
 
 from collections.abc import Mapping
 
+from electos.datamodels.nist.models.base import NistModel
+
 from utility import walk_document
 
 
@@ -115,9 +117,9 @@ class Index:
     def _build_indexes(self):
         """Build the ID and type indexes."""
         for item, key, value in walk_document(self._document):
-            if isinstance(value, Mapping):
+            if isinstance(value, NistModel):
                 node = IndexNode(item, key, value)
-                if "@id" in value:
-                    self._by_id[value["@id"]] = node
-                if "@type" in value:
-                    self._by_type.setdefault(value["@type"], []).append(node)
+                if hasattr(value, "model__id"):
+                    self._by_id[value.model__id] = node
+                if hasattr(value, "model__type"):
+                    self._by_type.setdefault(value.model__type, []).append(node)

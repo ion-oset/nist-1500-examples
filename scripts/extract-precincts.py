@@ -26,7 +26,7 @@ def _show_index(document):
     # Strip namespace prefix off of printed type
     n = len(index._namespace) + 1
     for name, node in index._by_id.items():
-        print(f"- {name}: {node.value['@type'][n:]}")
+        print(f"- {name}: {node.value.model__type[n:]}")
     print()
     # Counts of elements by their type
     print("Types (counts):")
