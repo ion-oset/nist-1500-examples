@@ -13,7 +13,7 @@ from utility import json_save
 
 def _show_item(item, output = None):
     output = output or sys.stdout
-    print(json.dumps(item, indent = 4, default = json_save), file = output)
+    print(item.json(indent = 4), file = output)
 
 
 def _show_index(document):
