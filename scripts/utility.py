@@ -1,11 +1,28 @@
 """Utilities."""
 
 from collections.abc import Sequence, Mapping
+from datetime import date as Date, datetime as DateTime
+from enum import Enum
+
+from electos.datamodels.nist.models.base import NistModel
 
 
 def ids_of(items):
     """Get JSON Schema '@id's from a list of elements."""
     return [item["@id"] for item in items]
+
+
+def json_save(item):
+    """JSON type conversions for types not covered by 'json.dump'."""
+    if isinstance(item, NistModel):
+        return item.dict()
+    elif isinstance(item, Enum):
+        return item.value
+    elif isinstance(item, Date):
+        return item.strftime("%Y-%m-%d")
+    elif isinstance(item, DateTime):
+        return item.strftime("%Y-%m-%d")
+    raise TypeError(f"Cannot convert '{type(item).__name__}' to JSON: {item}")
 
 
 def walk_document(parent):

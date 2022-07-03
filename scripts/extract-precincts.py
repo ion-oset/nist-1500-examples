@@ -1,15 +1,19 @@
 """Extract single-precinct EDFs from multi-precinct EDFs."""
 
+from electos.datamodels.nist.models.base import NistModel
+from electos.datamodels.nist.models.edf import ElectionReport
+
 from index import Index
 from selection import PrecinctSelection
 from extractor import PrecinctExtractor
+from utility import json_save
 
 
 # --- Display results
 
 def _show_item(item, output = None):
     output = output or sys.stdout
-    print(json.dumps(item, indent = 4), file = output)
+    print(json.dumps(item, indent = 4, default = json_save), file = output)
 
 
 def _show_index(document):
@@ -85,7 +89,8 @@ _SHOW = ( "document", "index", "selection", "extractor" )
 
 def run(input_file, output_file, precinct_id, election_id, show, **opts):
     assert input_file.is_file(), f"Not a file: {input_file}"
-    document = json.loads(input_file.read_text())
+    data = json.loads(input_file.read_text())
+    document = ElectionReport(**data)
     if "document" in show:
         _show_item(document)
     if "index" in show:
