@@ -35,21 +35,24 @@ class PrecinctSelection:
     def candidates(self):
         """Candidates in the precinct. Derived fron the candidate contests."""
         candidates = self._election.candidate
-        ids = [
-            contest_selection.candidate_ids
-            # Only look at candidate contests
-            for contest in self.contests
-                if contest.model__type == "ElectionResults.CandidateContest"
-            # Limit to selections with candidate IDs.
-            # Write-ins are candidate contest selections but have no IDs.
-            for contest_selection in contest.contest_selection
-                if hasattr(contest_selection, "CandidateIds")
-        ]
-        ids = reduce(lambda x, y: x + y, ids, [])
-        results = [
-            candidate
-            for candidate in candidates if candidate.model__id in ids
-        ]
+        if not candidates:
+            results = []
+        else:
+            ids = [
+                contest_selection.candidate_ids
+                # Only look at candidate contests
+                for contest in self.contests
+                    if contest.model__type == "ElectionResults.CandidateContest"
+                # Limit to selections with candidate IDs.
+                # Write-ins are candidate contest selections but have no IDs.
+                for contest_selection in contest.contest_selection
+                    if hasattr(contest_selection, "CandidateIds")
+            ]
+            ids = reduce(lambda x, y: x + y, ids, [])
+            results = [
+                candidate
+                for candidate in candidates if candidate.model__id in ids
+            ]
         return results
 
 
@@ -57,15 +60,18 @@ class PrecinctSelection:
     def contests(self):
         """Contests in the precinct. Derived from the ballot style."""
         contests = self._election.contest
-        ids = [
-            item2.contest_id
-            for item1 in self.ballot_style.ordered_content
-            for item2 in item1.ordered_content
-        ]
-        results = [
-            contest
-            for contest in contests if contest.model__id in ids
-        ]
+        if not contests:
+            return results
+        else:
+            ids = [
+                item2.contest_id
+                for item1 in self.ballot_style.ordered_content
+                for item2 in item1.ordered_content
+            ]
+            results = [
+                contest
+                for contest in contests if contest.model__id in ids
+            ]
         return results
 
 
@@ -73,12 +79,15 @@ class PrecinctSelection:
     def gp_units(self):
         """Geo-political unit for the precinct. Extracted from election report."""
         gp_units = self._document.gp_unit
-        ids = self.ballot_style.gp_unit_ids
-        results = [
-            gp_unit
-            for gp_unit in gp_units if gp_unit.model__id in ids
-        ]
-        assert len(results) == 1, "More than one GpUnit for precinct"
+        if not gp_units:
+            results = []
+        else:
+            ids = self.ballot_style.gp_unit_ids
+            results = [
+                gp_unit
+                for gp_unit in gp_units if gp_unit.model__id in ids
+            ]
+            assert len(results) == 1, "More than one GpUnit for precinct"
         return results
 
 
@@ -86,14 +95,17 @@ class PrecinctSelection:
     def headers(self):
         """Ballot headers for the precinct. Extracted from the election report."""
         headers = self._document.header
-        ids = [
-            item.header_id
-            for item in self.ballot_style.ordered_content
-        ]
-        results = [
-            header
-            for header in headers if header.model__id in ids
-        ]
+        if not headers:
+            results = []
+        else:
+            ids = [
+                item.header_id
+                for item in self.ballot_style.ordered_content
+            ]
+            results = [
+                header
+                for header in headers if header.model__id in ids
+            ]
         return results
 
 
@@ -101,17 +113,20 @@ class PrecinctSelection:
     def offices(self):
         """Offices for the precinct. Derived from the candidate contests."""
         offices = self._document.office
-        ids = [
-            contest.office_ids
-            # Only candidate contests have offices
-            for contest in self.contests
-                if contest.model__type == "ElectionResults.CandidateContest"
-        ]
-        ids = reduce(lambda x, y: x + y, ids, [])
-        results = [
-            office
-            for office in offices if office.model__id in ids
-        ]
+        if not offices:
+            results = []
+        else:
+            ids = [
+                contest.office_ids
+                # Only candidate contests have offices
+                for contest in self.contests
+                    if contest.model__type == "ElectionResults.CandidateContest"
+            ]
+            ids = reduce(lambda x, y: x + y, ids, [])
+            results = [
+                office
+                for office in offices if office.model__id in ids
+            ]
         return results
 
 
@@ -119,16 +134,19 @@ class PrecinctSelection:
     def parties(self):
         """Parties for the precinct. Derived from the candidates."""
         parties = self._document.party
-        ids = [
-            candidate.party_id
-            # Not all candidates have a party
-            for candidate in self.candidates
-                if hasattr(candidate, "PartyId")
-        ]
-        results = [
-            party
-            for party in parties if party.model__id in ids
-        ]
+        if not parties:
+            results = []
+        else:
+            ids = [
+                candidate.party_id
+                # Not all candidates have a party
+                for candidate in self.candidates
+                    if hasattr(candidate, "PartyId")
+            ]
+            results = [
+                party
+                for party in parties if party.model__id in ids
+            ]
         return results
 
 
@@ -136,16 +154,19 @@ class PrecinctSelection:
     def persons(self):
         """Persons for the precinct. Derived from the candidates."""
         persons = self._document.person
-        ids = [
-            candidate.person_id
-            for candidate in self.candidates
-        ]
-        results = [
-            person
-            # Note: Technically a Candidate can have 0 Persons.
-            # It's not clear under what circumstances that can occur.
-            for person in persons if person.model__id in ids
-        ]
+        if not persons:
+            results = []
+        else:
+            ids = [
+                candidate.person_id
+                for candidate in self.candidates
+            ]
+            results = [
+                person
+                # Note: Technically a Candidate can have 0 Persons.
+                # It's not clear under what circumstances that can occur.
+                for person in persons if person.model__id in ids
+            ]
         return results
 
 
