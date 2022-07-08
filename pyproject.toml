@@ -6,7 +6,9 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-"electos.nist-datamodels" = {path = ".local/tmp/electos.nist_datamodels-0.0.4-py3-none-any.whl"}
+
+"electos.nist-datamodels" = { git = "https://github.com/ion-oset/nist-data-models.git", rev = "python/main" }
+
 
 [tool.poetry.dev-dependencies]
 
