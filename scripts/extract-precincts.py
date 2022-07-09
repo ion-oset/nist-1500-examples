@@ -52,6 +52,7 @@ def _show_precinct_selection(document, precinct_id, election_id):
         print(f"{label1}:")
         sep = "  - "
         nsep = f"\n{sep}"
+        all = all or []
         other = [_ for _ in all if _ not in some]
         for label2, items in zip(("Precinct IDs", "Other IDs"), (some, other)):
             if len(items) == 0:
