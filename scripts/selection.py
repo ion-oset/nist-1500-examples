@@ -44,9 +44,10 @@ class PrecinctSelection:
                 for contest in self.contests
                     if contest.model__type == "ElectionResults.CandidateContest"
                 # Limit to selections with candidate IDs.
-                # Write-ins are candidate contest selections but have no IDs.
+                # Write-ins are candidate contest selections and they *have* a
+                # 'CandidateId' property but it is null.
                 for contest_selection in contest.contest_selection
-                    if hasattr(contest_selection, "CandidateIds")
+                    if getattr(contest_selection, "candidate_ids", None) != None
             ]
             ids = reduce(lambda x, y: x + y, ids, [])
             results = [
@@ -141,7 +142,7 @@ class PrecinctSelection:
                 candidate.party_id
                 # Not all candidates have a party
                 for candidate in self.candidates
-                    if hasattr(candidate, "PartyId")
+                    if hasattr(candidate, "party_id")
             ]
             results = [
                 party
