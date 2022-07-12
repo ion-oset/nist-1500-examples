@@ -93,7 +93,7 @@ from pathlib import Path
 
 # Contexts to show debugging output in.
 # Would be replaced with 'logging' in a non-example application.
-_SHOW = ( "document", "index", "selection", "extractor" )
+_SHOW = ( "document", "index", "selection", "extraction" )
 
 
 def run(input_file, output_file, precinct_id, election_id, show, **opts):
@@ -106,7 +106,7 @@ def run(input_file, output_file, precinct_id, election_id, show, **opts):
         _show_index(document)
     if "selection" in show:
         _show_precinct_selection(document, precinct_id, election_id)
-    if "extractor" in show:
+    if "extraction" in show:
         _show_extracted_precinct(document, precinct_id, election_id)
     if output_file:
         output_file = Path(output_file)
