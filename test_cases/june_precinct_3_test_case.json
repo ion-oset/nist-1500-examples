@@ -1,0 +1,688 @@
+{
+    "@type": "ElectionResults.ElectionReport",
+    "Election": [
+        {
+            "@type": "ElectionResults.Election",
+            "BallotStyle": [
+                {
+                    "@type": "ElectionResults.BallotStyle",
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "OtherType": "TTV",
+                            "Type": "other",
+                            "Value": "precinct_3_spaceport"
+                        }
+                    ],
+                    "GpUnitIds": [
+                        "rec7dCergEa3mzqxy"
+                    ],
+                    "OrderedContent": [
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recXNb4zPrvC1m6Fr",
+                            "OrderedContestSelectionIds": [
+                                "recvYvTb9hWH7tptb",
+                                "recBnJZEgCKAnfpNo",
+                                "recwNuOnepWNGz67V",
+                                "rec9Eev970VhohqKi",
+                                "recFiGYjGCIyk5LBe"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recsoZy7vYhS3lbcK",
+                            "OrderedContestSelectionIds": [
+                                "recPod2L8VhwagiDl",
+                                "recQK3J9IJq42hz2n",
+                                "reccUkUdEznfODgeL"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recqPa7AeyufIfd6k",
+                            "OrderedContestSelectionIds": [
+                                "recysACFx8cgwomBE",
+                                "recabXA9jzFYRmGXy"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recWjDBFeafCdklWq",
+                            "OrderedContestSelectionIds": [
+                                "rec7mVWjUH6fmDxig",
+                                "reccIHOhUfJgJkqS7"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "Candidate": [
+                {
+                    "@id": "reczKIKk81RshXkd9",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Anthony Alpha",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PartyId": "recBiK9LZXeZmmFEg",
+                    "PersonId": "rec0YJkyHfiT4PBT6"
+                },
+                {
+                    "@id": "recLB4X1sLL2q1bSW",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Betty Beta",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PartyId": "recBiK9LZXeZmmFEg",
+                    "PersonId": "recUSqUnlKb63WT3F"
+                },
+                {
+                    "@id": "recopGzcpflkyhwdN",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Gloria Gamma",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PartyId": "reckpEKRtLuDdt03n",
+                    "PersonId": "rec1R5Sy3JzkIC2Di"
+                },
+                {
+                    "@id": "recBEqMDC9w5AnKxh",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "David Delta",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PartyId": "reckpEKRtLuDdt03n",
+                    "PersonId": "rec4Z3OQJv0YY8hhR"
+                },
+                {
+                    "@id": "rec72dETaScaK4tqv",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Jane Jetson",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PersonId": "recUoaJjaziRvFTcr"
+                },
+                {
+                    "@id": "recWnqiDUAZupjFW8",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Harlan Ellis",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PersonId": "rec2vW1LMVneqPEXP"
+                },
+                {
+                    "@id": "recDqtLJ6IqwZJr7k",
+                    "@type": "ElectionResults.Candidate",
+                    "BallotName": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Rudy Indexer",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "PersonId": "rechCFDgeqHybXkSY"
+                }
+            ],
+            "Contest": [
+                {
+                    "@id": "recthF6jdx5ybBNkC",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recbxvhKikHJNZYbq",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recOZMDz6uSf5A1NH"
+                            ]
+                        },
+                        {
+                            "@id": "recigPkqYXXDJEaCE",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "reccQRyca6A6QpRuo"
+                            ]
+                        },
+                        {
+                            "@id": "recJvikmG5MrUKzo1",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "rec56yn7vK7Vk5Zbv"
+                            ]
+                        },
+                        {
+                            "@id": "recvjB3rgfiicf0RP",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recSlC9yfxdyUA94v"
+                            ]
+                        },
+                        {
+                            "@id": "recbN7UUMaSuOYGQ6",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recx71NmYNa1DNFIu"
+                            ]
+                        },
+                        {
+                            "@id": "recYurH2CLY3SlYS8",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        },
+                        {
+                            "@id": "recI5jfcXIsbAKytC",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        },
+                        {
+                            "@id": "recn9m0o1em7gLahj",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        }
+                    ],
+                    "ElectionDistrictId": "recOVSnILnPJ7Dahl",
+                    "Name": "Gadget County School Board",
+                    "OfficeIds": [
+                        "rec1zWmGWlgKKmUO4"
+                    ],
+                    "VoteVariation": "n-of-m",
+                    "VotesAllowed": 4
+                },
+                {
+                    "@id": "recsoZy7vYhS3lbcK",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recPod2L8VhwagiDl",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        },
+                        {
+                            "@id": "recQK3J9IJq42hz2n",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "reczKIKk81RshXkd9",
+                                "recLB4X1sLL2q1bSW"
+                            ]
+                        },
+                        {
+                            "@id": "reccUkUdEznfODgeL",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recopGzcpflkyhwdN",
+                                "recBEqMDC9w5AnKxh"
+                            ]
+                        }
+                    ],
+                    "ElectionDistrictId": "recTXCMIfa5VQJju2",
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "OtherType": "https://viaf.org/viaf/",
+                            "Type": "other",
+                            "Value": "129529146"
+                        }
+                    ],
+                    "Name": "President of the United States",
+                    "OfficeIds": [
+                        "recFr8nr6uAZsD2r8"
+                    ],
+                    "VoteVariation": "plurality",
+                    "VotesAllowed": 1
+                },
+                {
+                    "@id": "recIj8OmzqzzvnDbM",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recTKcXLCzRvKB9U0",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recK4Vc1EdfBufEU4"
+                            ]
+                        },
+                        {
+                            "@id": "recKD6dBvkNhEU4bg",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recd1n9MadKRsYLUX"
+                            ]
+                        },
+                        {
+                            "@id": "recqq21kO6HWgpJZV",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        }
+                    ],
+                    "ElectionDistrictId": "recfK8xOapcRIeZ2k",
+                    "Name": "Contest for Mayor of Orbit City",
+                    "OfficeIds": [
+                        "rec7N0cboW3L1Mv0I"
+                    ],
+                    "VoteVariation": "plurality",
+                    "VotesAllowed": 1
+                },
+                {
+                    "@id": "recXNb4zPrvC1m6Fr",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recvYvTb9hWH7tptb",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "rec72dETaScaK4tqv"
+                            ]
+                        },
+                        {
+                            "@id": "recBnJZEgCKAnfpNo",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recWnqiDUAZupjFW8"
+                            ]
+                        },
+                        {
+                            "@id": "recwNuOnepWNGz67V",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recDqtLJ6IqwZJr7k"
+                            ]
+                        },
+                        {
+                            "@id": "rec9Eev970VhohqKi",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        },
+                        {
+                            "@id": "recFiGYjGCIyk5LBe",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        }
+                    ],
+                    "ElectionDistrictId": "recVN5dRsq4j6QZn3",
+                    "Name": "Spaceport Control Board",
+                    "OfficeIds": [
+                        "recBAG7iuOZ1MER6i"
+                    ],
+                    "VoteVariation": "n-of-m",
+                    "VotesAllowed": 2
+                },
+                {
+                    "@id": "recWjDBFeafCdklWq",
+                    "@type": "ElectionResults.BallotMeasureContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "rec7mVWjUH6fmDxig",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "Yes",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "@id": "reccIHOhUfJgJkqS7",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "No",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "ElectionDistrictId": "rec93s713Yh6ZJT31",
+                    "FullText": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Do you approve amending the Constitution to legalize the controlled use of helium balloons?  Only adults at least 21 years of age could use helium. The State commission created to oversee the State's medical helium program would also oversee the new, personal use helium market.Helium balloons would be subject to the State sales tax. If authorized by the Legislature, a municipality may pass a local ordinance to charge a local tax on helium balloons.",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "Name": "Constitutional Amendment"
+                },
+                {
+                    "@id": "recqPa7AeyufIfd6k",
+                    "@type": "ElectionResults.BallotMeasureContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recysACFx8cgwomBE",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "Yes",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "@id": "recabXA9jzFYRmGXy",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "No",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "ElectionDistrictId": "recOVSnILnPJ7Dahl",
+                    "FullText": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Shall Gadget County increase its sales tax from 1% to 1.1% for the purpose of raising additional revenue to fund expanded air traffic control operations?",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "Name": "Air Traffic Control Tax Increase"
+                }
+            ],
+            "ElectionScopeId": "recTXCMIfa5VQJju2",
+            "EndDate": "2024-11-05",
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "General Election",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "StartDate": "2024-11-05",
+            "Type": "general"
+        }
+    ],
+    "Format": "precinct-level",
+    "GeneratedDate": "2022-06-18T09:29:52+00:00",
+    "GpUnit": [
+        {
+            "@id": "rec7dCergEa3mzqxy",
+            "@type": "ElectionResults.ReportingUnit",
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "Port",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "Port Precinct",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "Type": "precinct"
+        }
+    ],
+    "Issuer": "TrustTheVote",
+    "IssuerAbbreviation": "TTV",
+    "Office": [
+        {
+            "@id": "recBAG7iuOZ1MER6i",
+            "@type": "ElectionResults.Office",
+            "IsPartisan": false,
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "Spaceport Control Board Member",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "Spaceport Control Board Member",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "recFr8nr6uAZsD2r8",
+            "@type": "ElectionResults.Office",
+            "IsPartisan": true,
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "POTUS",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "President of the United States",
+                        "Language": "en"
+                    }
+                ]
+            }
+        }
+    ],
+    "Party": [
+        {
+            "@id": "recBiK9LZXeZmmFEg",
+            "@type": "ElectionResults.Party",
+            "Abbreviation": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "LEP",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "Leptonican",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "The Lepton Party",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "reckpEKRtLuDdt03n",
+            "@type": "ElectionResults.Party",
+            "Abbreviation": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "HAD",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "Hadronicrat",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "The Hadron Party of Farallon",
+                        "Language": "en"
+                    }
+                ]
+            }
+        }
+    ],
+    "Person": [
+        {
+            "@id": "rec0YJkyHfiT4PBT6",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Anthony",
+            "LastName": "Alpha",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "senator",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "rec1R5Sy3JzkIC2Di",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Gloria",
+            "LastName": "Gamma",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "doctor",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "rec2vW1LMVneqPEXP",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Harlan",
+            "LastName": "Ellis",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "electician",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "rec4Z3OQJv0YY8hhR",
+            "@type": "ElectionResults.Person",
+            "FirstName": "David",
+            "LastName": "Delta",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "business owner",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "recUSqUnlKb63WT3F",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Betty",
+            "LastName": "Beta",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "lawyer",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "recUoaJjaziRvFTcr",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Jane",
+            "LastName": "Jetson",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "consultant",
+                        "Language": "en"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "rechCFDgeqHybXkSY",
+            "@type": "ElectionResults.Person",
+            "FirstName": "Rudy",
+            "LastName": "Indexer",
+            "Profession": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "lawyer",
+                        "Language": "en"
+                    }
+                ]
+            }
+        }
+    ],
+    "SequenceEnd": 1,
+    "SequenceStart": 1,
+    "Status": "pre-election",
+    "VendorApplicationId": "ElectionReporter"
+}
