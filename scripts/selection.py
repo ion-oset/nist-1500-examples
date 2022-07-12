@@ -5,9 +5,18 @@ from electos.datamodels.nist.models.edf import OrderedContest, OrderedHeader
 
 class PrecinctSelection:
 
-    """Selection of all elements in an EDF that belong to a single precinct."""
+    """Selection of all elements in an EDF that belong to a single precinct.
 
-    # Note: Order of properties is declaration order (i.e. being preserved).
+    Notes:
+
+    - All properties are either from 'ElectionReport' or 'Election'.
+    - The order of properties is the declaration order from document.
+    - Most selections may be empty as nearly all the properties are optional.
+      This is a result of the JSON Schema being unconstrained: EDFs can be pass
+      schema validation and still not be possible.
+    - Modifying the selection should NOT modify the property on the original
+      document. (This is not currently being tested.)
+    """
 
     def __init__(self, document, precinct_id, election_id = 0):
         """Construct a precinct selection from an EDF.
@@ -29,6 +38,9 @@ class PrecinctSelection:
 
         This is the root of the extraction, so there is only one.
         """
+        # If the ballot style is missing an error will be raised here.
+        # TODO: A selection is not possible without a ballot style so this
+        # check should come earlier.
         result = self._election.ballot_style[self._precinct_id]
         return result
 

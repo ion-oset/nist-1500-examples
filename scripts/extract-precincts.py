@@ -39,6 +39,13 @@ def _show_precinct_selection(document, precinct_id, election_id):
     print("Precinct IDs")
     print("------------\n")
     selection = PrecinctSelection(document, precinct_id, election_id)
+    # Entry fields:
+    # - labels: Property key (as defined in the JSON Schema)
+    # - some: The properties present in the selection
+    #   These are always lists, even if empty
+    # - all: The properties present in the document
+    #   These are *not* always lists. They may be None if the property is not
+    #   defined in the document.
     entries = [
         ( "GP Units", selection.gp_units, selection._document.gp_unit ),
         ( "Headers",  selection.headers,  selection._document.header ),
@@ -52,6 +59,7 @@ def _show_precinct_selection(document, precinct_id, election_id):
         print(f"{label1}:")
         sep = "  - "
         nsep = f"\n{sep}"
+        # If the document property is None use an empty list so 'other' is defined.
         all = all or []
         other = [_ for _ in all if _ not in some]
         for label2, items in zip(("Precinct IDs", "Other IDs"), (some, other)):
