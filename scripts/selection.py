@@ -1,5 +1,7 @@
 from functools import cached_property, reduce
 
+from electos.datamodels.nist.models.edf import OrderedContest, OrderedHeader
+
 
 class PrecinctSelection:
 
@@ -65,9 +67,9 @@ class PrecinctSelection:
             return results
         else:
             ids = [
-                item2.contest_id
-                for item1 in self.ballot_style.ordered_content
-                for item2 in item1.ordered_content
+                contest_id
+                for item in self.ballot_style.ordered_content
+                for contest_id in self._walk_ordered_content(item)
             ]
             results = [
                 contest
@@ -179,3 +181,22 @@ class PrecinctSelection:
         election = elections[self._election_id]
         return election
 
+
+    # --- Methods: Internal
+
+    def _walk_ordered_content(self, content):
+        """Recursively walk 'OrderedContent' and find 'ContestId's.
+
+        There is only one 'OrderedContest' per 'OrderedContent' but
+        it may be nested under zero or more 'OrderedHeader's.
+
+        Returns:
+            List of 'ContestSelection' IDs.
+        """
+        if isinstance(content, OrderedContest):
+            # return content.ordered_contest_selection_ids
+            return [content.contest_id]
+        elif isinstance(content, OrderedHeader):
+            return self._ordered_content(content.ordered_content)
+        else:
+            assert False, f"Not an OrderedContent subtype: {type(content).__name__}"
