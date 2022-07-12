@@ -134,14 +134,18 @@ def main():
     add("input_file", type = Path,
         help = "EDF file to select precinct from")
     add("precinct_id", type = int,
-        help = "ID (numeric index) of the BallotStyle of the precinct to extract")
-    add("election_id", type = int, nargs = "?", default = 0,
-        help = "ID (numeric index) of the Election to extract. (default: 0)")
+        help = "ID (>= 1) of the BallotStyle of the precinct to extract")
+    add("election_id", type = int, nargs = "?", default = 1,
+        help = "ID (>= 1)of the Election to extract. (default: 1)")
     add("-o", "--output-file", type = None,
         help = "EDF file with selected precinct (default: standard output)")
     add("--show", choices = _SHOW, action = "append", default = [],
         help = "Contexts to show debugging output. Any of: " + ", ".join(_SHOW))
     opts = parser.parse_args()
+    if opts.precinct_id <= 0:
+        raise ValueError(f"Precinct ID must be >= 1: {opts.precinct_id}")
+    if opts.election_id <= 0:
+        raise ValueError(f"Election ID must be >= 1: {opts.election_id}")
     opts = vars(opts)
     run(**opts)
 

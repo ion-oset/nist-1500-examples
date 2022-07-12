@@ -28,8 +28,8 @@ class PrecinctSelection:
                 default: 0. There is usually only one 'Election'.
         """
         self._document = document
-        self._precinct_id = precinct_id
-        self._election_id = election_id
+        self._precinct_id = precinct_id - 1
+        self._election_id = election_id - 1
 
 
     @cached_property
@@ -40,8 +40,13 @@ class PrecinctSelection:
         """
         # If the ballot style is missing an error will be raised here.
         # TODO: A selection is not possible without a ballot style so this
-        # check should come earlier.
-        result = self._election.ballot_style[self._precinct_id]
+        # check should come earlier.l
+        try:
+            result = self._election.ballot_style[self._precinct_id]
+        except IndexError as ex:
+            index = self._precinct_id + 1
+            length = len(self._election.ballot_style)
+            raise IndexError(f"Precinct ID is out of range ([1-{length}]): {index}")
         return result
 
 
