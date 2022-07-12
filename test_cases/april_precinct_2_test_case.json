@@ -1,0 +1,202 @@
+{
+    "@type": "ElectionResults.ElectionReport",
+    "Election": [
+        {
+            "@type": "ElectionResults.Election",
+            "BallotStyle": [
+                {
+                    "@type": "ElectionResults.BallotStyle",
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "OtherType": "TTV",
+                            "Type": "other",
+                            "Value": "precinct_4_bedrock"
+                        }
+                    ],
+                    "GpUnitIds": [
+                        "recSQ3ZpvJlTll1Ve"
+                    ],
+                    "OrderedContent": [
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recqPa7AeyufIfd6k",
+                            "OrderedContestSelectionIds": [
+                                "recysACFx8cgwomBE",
+                                "recabXA9jzFYRmGXy"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "Candidate": [],
+            "Contest": [
+                {
+                    "@id": "recIj8OmzqzzvnDbM",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recTKcXLCzRvKB9U0",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recK4Vc1EdfBufEU4"
+                            ]
+                        },
+                        {
+                            "@id": "recKD6dBvkNhEU4bg",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recd1n9MadKRsYLUX"
+                            ]
+                        },
+                        {
+                            "@id": "recqq21kO6HWgpJZV",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        }
+                    ],
+                    "ElectionDistrictId": "recfK8xOapcRIeZ2k",
+                    "Name": "Contest for Mayor of Orbit City",
+                    "OfficeIds": [
+                        "rec7N0cboW3L1Mv0I"
+                    ],
+                    "VoteVariation": "plurality",
+                    "VotesAllowed": 1
+                },
+                {
+                    "@id": "recXNb4zPrvC1m6Fr",
+                    "@type": "ElectionResults.CandidateContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recvYvTb9hWH7tptb",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "rec72dETaScaK4tqv"
+                            ]
+                        },
+                        {
+                            "@id": "recBnJZEgCKAnfpNo",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recWnqiDUAZupjFW8"
+                            ]
+                        },
+                        {
+                            "@id": "recwNuOnepWNGz67V",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "CandidateIds": [
+                                "recDqtLJ6IqwZJr7k"
+                            ]
+                        },
+                        {
+                            "@id": "rec9Eev970VhohqKi",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        },
+                        {
+                            "@id": "recFiGYjGCIyk5LBe",
+                            "@type": "ElectionResults.CandidateSelection",
+                            "IsWriteIn": true
+                        }
+                    ],
+                    "ElectionDistrictId": "recVN5dRsq4j6QZn3",
+                    "Name": "Spaceport Control Board",
+                    "OfficeIds": [
+                        "recBAG7iuOZ1MER6i"
+                    ],
+                    "VoteVariation": "n-of-m",
+                    "VotesAllowed": 2
+                },
+                {
+                    "@id": "recqPa7AeyufIfd6k",
+                    "@type": "ElectionResults.BallotMeasureContest",
+                    "ContestSelection": [
+                        {
+                            "@id": "recysACFx8cgwomBE",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "Yes",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "@id": "recabXA9jzFYRmGXy",
+                            "@type": "ElectionResults.BallotMeasureSelection",
+                            "Selection": {
+                                "@type": "ElectionResults.InternationalizedText",
+                                "Text": [
+                                    {
+                                        "@type": "ElectionResults.LanguageString",
+                                        "Content": "No",
+                                        "Language": "en"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "ElectionDistrictId": "recOVSnILnPJ7Dahl",
+                    "FullText": {
+                        "@type": "ElectionResults.InternationalizedText",
+                        "Text": [
+                            {
+                                "@type": "ElectionResults.LanguageString",
+                                "Content": "Shall Gadget County increase its sales tax from 1% to 1.1% for the purpose of raising additional revenue to fund expanded air traffic control operations?",
+                                "Language": "en"
+                            }
+                        ]
+                    },
+                    "Name": "Air Traffic Control Tax Increase"
+                }
+            ],
+            "ElectionScopeId": "recOVSnILnPJ7Dahl",
+            "EndDate": "2022-06-14",
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "Special Election",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "StartDate": "2022-06-14",
+            "Type": "special"
+        }
+    ],
+    "Format": "precinct-level",
+    "GeneratedDate": "2022-06-17T17:43:07+00:00",
+    "GpUnit": [
+        {
+            "@id": "recSQ3ZpvJlTll1Ve",
+            "@type": "ElectionResults.ReportingUnit",
+            "Name": {
+                "@type": "ElectionResults.InternationalizedText",
+                "Label": "Bedrock",
+                "Text": [
+                    {
+                        "@type": "ElectionResults.LanguageString",
+                        "Content": "Bedrock Precinct",
+                        "Language": "en"
+                    }
+                ]
+            },
+            "Type": "precinct"
+        }
+    ],
+    "Issuer": "TrustTheVote",
+    "IssuerAbbreviation": "TTV",
+    "Office": [],
+    "Party": [],
+    "Person": [],
+    "SequenceEnd": 1,
+    "SequenceStart": 1,
+    "Status": "pre-election",
+    "VendorApplicationId": "ElectionReporter"
+}
